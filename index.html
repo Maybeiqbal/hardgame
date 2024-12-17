@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Tebak Angka -_- </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: Yellow;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #218838;
+    }
+    .input-box {
+      padding: 10px;
+      font-size: 18px;
+      width: 50px;
+      text-align: center;
+    }
+    .result {
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .message {
+      font-size: 18px;
+      margin-top: 20px;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Game Tebak Angka</h1>
+  <p>Masukkan angka antara 1 hingga 100 dan klik Tebak!(pdhl gampang) </p>
+  
+  <input type="number" id="userGuess" class="input-box" min="1" max="100">
+  <button class="button" onclick="checkGuess()">Tebak</button>
+
+  <div id="result" class="result"></div>
+  <div id="message" class="message"></div>
+
+  <script>
+    // Angka yang harus ditebak
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+    function checkGuess() {
+      const userGuess = document.getElementById('userGuess').value;
+      const resultDiv = document.getElementById('result');
+      const messageDiv = document.getElementById('message');
+
+      if (userGuess == randomNumber) {
+        resultDiv.innerHTML = "Selamat! Kamu benar! 😹🎉";
+        messageDiv.innerHTML = "Game Selesai, klik halaman ini untuk bermain lagi!";
+      } else if (userGuess > randomNumber) {
+        resultDiv.innerHTML = "Terlalu tinggi! Coba lagi☺!";
+      } else if (userGuess < randomNumber) {
+        resultDiv.innerHTML = "Terlalu rendah!puki😑";
+      } else {
+        resultDiv.innerHTML = "Masukkan angka yang valid, tebak yg masuk akal njir!";
+      }
+    }
+  </script>
+</body>
+</html>
